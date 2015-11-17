@@ -47,6 +47,6 @@ C:\Users\Hence\Documents\GitHub\1dv409-1-1-gissa-det-hemliga-talet\NumberGuessin
 C:\Users\Hence\Documents\GitHub\1dv409-1-1-gissa-det-hemliga-talet\NumberGuessingGame.MVC5\NumberGuessingGame\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Hence\Documents\GitHub\1dv409-1-1-gissa-det-hemliga-talet\NumberGuessingGame.MVC5\NumberGuessingGame\bin\System.Web.WebPages.Razor.xml
 C:\Users\Hence\Documents\GitHub\1dv409-1-1-gissa-det-hemliga-talet\NumberGuessingGame.MVC5\NumberGuessingGame\bin\System.Web.Optimization.xml
-C:\Users\Hence\Documents\GitHub\1dv409-1-1-gissa-det-hemliga-talet\NumberGuessingGame.MVC5\NumberGuessingGame\obj\Debug\NumberGuessingGame.csprojResolveAssemblyReference.cache
 C:\Users\Hence\Documents\GitHub\1dv409-1-1-gissa-det-hemliga-talet\NumberGuessingGame.MVC5\NumberGuessingGame\obj\Debug\NumberGuessingGame.dll
 C:\Users\Hence\Documents\GitHub\1dv409-1-1-gissa-det-hemliga-talet\NumberGuessingGame.MVC5\NumberGuessingGame\obj\Debug\NumberGuessingGame.pdb
+C:\Users\Hence\Documents\GitHub\1dv409-1-1-gissa-det-hemliga-talet\NumberGuessingGame.MVC5\NumberGuessingGame\obj\Debug\NumberGuessingGame.csprojResolveAssemblyReference.cache

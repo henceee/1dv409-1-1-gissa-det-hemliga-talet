@@ -1,0 +1,30 @@
+﻿@model NumberGuessingGame.Models.ViewModels.ViewModel
+
+@{
+    ViewBag.Title = "Guess the secret number";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary();
+    @Html.EditorFor(m => m.Guess);
+    <input type="submit" value="Guess" />
+}
+
+@if (Model != null)
+{
+    //Output something.
+}
+
+@section scripts
+{
+    <script>
+        $(function ()
+        {
+            $("#secretNumber").focus();
+        });
+    </script>
+}
