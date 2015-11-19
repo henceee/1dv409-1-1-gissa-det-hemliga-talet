@@ -7,8 +7,15 @@ namespace NumberGuessingGame.Controllers
     public class NumberGuessingController : Controller
     {
         private SecretNumber _secretNumber;
+     
+        /// <summary>
+        /// Property for the field _secretnumber
+        /// 
+        /// </summary>
         public  SecretNumber SecretNumber
         {
+            //If the field _secretnumber != null ret. it, otherwise
+            // instantiate & ret. new secrecNumber obj.
             get
             {
                 return _secretNumber ?? (_secretNumber = new SecretNumber());
@@ -18,9 +25,13 @@ namespace NumberGuessingGame.Controllers
                 _secretNumber = value;
             }
         }
-
+        /// <summary>
+        /// Property for Session to hold ref. to hold SecretNumber obj.
+        /// </summary>
         public SecretNumber SecretNumberSession
         {
+            // If the sesssion != null, cast & return it,
+            // otherwise set to SecretNumber prop
             get
             {
                 return (SecretNumber)Session["SecretNumber"] ?? (SecretNumberSession = SecretNumber);
@@ -31,17 +42,15 @@ namespace NumberGuessingGame.Controllers
                 Session["SecretNumber"] = value;
             }
         }
-
+        
         // GET: NumberGuessing
         public ActionResult Index()
         {
-            Session.Clear();
-
-            SecretNumber = SecretNumberSession;
+            NewSession();
 
             var viewModel = new ViewModel { Outcome = Outcome.Indefinite, SecretNumber = SecretNumber };
 
-            return View(viewModel);
+            return View("Index",viewModel);
         }
 
         //POST: NumberGuessing
@@ -58,7 +67,25 @@ namespace NumberGuessingGame.Controllers
 
                 return View(viewModel);
             }
-            return View();
+            return View("Index");
+        }
+
+        //Get Index
+        public ActionResult newNumber()
+        {
+            NewSession();
+
+            return View("Index");
+        }
+        /// <summary>
+        /// Function to clear and set 
+        /// SecretNumber prop.
+        /// </summary>
+        public void NewSession()
+        {
+            Session.Clear();
+
+            SecretNumber = SecretNumberSession;
         }
 
 

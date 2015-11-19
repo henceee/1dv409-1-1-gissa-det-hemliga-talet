@@ -4,7 +4,9 @@
     ViewBag.Title = "Guess the secret number";
 }
 
-<h2>Index</h2>
+<h2>Guess the secret number</h2>
+<p>You have 7 guesses, can you guess the number between 1 and 100?</p>
+
 
 @using (Html.BeginForm())
 {
@@ -14,10 +16,29 @@
     <input type="submit" value="Guess" />
 }
 
-@if (Model != null)
+
+
+@if (Model != null && Model.SecretNumber.GuessedNumbers.Count >0)
 {
-    //Output something.
+    <p>Guessed Numbers:</p>
+    <ul>
+        @foreach (var number in Model.SecretNumber.GuessedNumbers)
+        {
+            <li>@number.Number</li>
+        }
+    </ul>
+    
+    @Model.DisplayOutCome()
+    <br />
+    if (Model.SecretNumber.CanMakeGuess == false)
+    {
+        @Html.ActionLink("New Secret Number", "Index")   
+    }
+
 }
+
+
+
 
 @section scripts
 {

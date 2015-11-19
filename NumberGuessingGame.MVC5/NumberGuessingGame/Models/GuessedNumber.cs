@@ -5,6 +5,9 @@ using System.Text;
 
 namespace NumberGuessingGame.Models
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public struct GuessedNumber
     {
         public int? Number;

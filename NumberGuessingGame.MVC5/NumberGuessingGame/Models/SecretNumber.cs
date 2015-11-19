@@ -8,13 +8,19 @@ namespace NumberGuessingGame.Models
 {
     public class SecretNumber
     {
+        #region fields
         private List<GuessedNumber> _guessedNumbers;
         private GuessedNumber _lastGuessedNumber;
         private int? _number;
         public static readonly int MaxNumberOfGuesses = 7;
         private const int MinVal = 1;
         private const int MaxVal = 100;
+        #endregion
 
+        #region properties
+        /// <summary>
+        /// 
+        /// </summary>
         public bool CanMakeGuess
         {
             get
@@ -23,6 +29,9 @@ namespace NumberGuessingGame.Models
             }
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
         public int Count
         {   
             get
@@ -30,7 +39,10 @@ namespace NumberGuessingGame.Models
                 return _guessedNumbers.Count;
             }
         }
-
+    
+        /// <summary>
+        /// 
+        /// </summary>
         public IList<GuessedNumber> GuessedNumbers
         {
             get
@@ -39,6 +51,9 @@ namespace NumberGuessingGame.Models
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public GuessedNumber LastGuessedNumber { get { return _lastGuessedNumber; } }
         
         public int? Number 
@@ -52,21 +67,35 @@ namespace NumberGuessingGame.Models
                 _number = value;
             }
         }
-        
+
+        #endregion
+
+        #region constructor
+        /// <summary>
+        /// 
+        /// </summary>        
         public SecretNumber()
         {
             _guessedNumbers = new List<GuessedNumber>(MaxNumberOfGuesses);
             this.Initialize();
         }
-            
+        #endregion
 
+        /// <summary>
+        /// 
+        /// </summary>
+        #region Initialize
         public void Initialize()
         {
             _guessedNumbers.Clear();
             _number = new Random().Next(MinVal, MaxVal);
             _lastGuessedNumber = new GuessedNumber { Number = null, Outcome = Outcome.Indefinite};
         }
-
+        #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        #region MakeGuess
         public Outcome MakeGuess(int guess)
         {
             
@@ -109,6 +138,7 @@ namespace NumberGuessingGame.Models
 
             return _lastGuessedNumber.Outcome;
         }
+        #endregion
     }
 }
 
