@@ -4,7 +4,7 @@
     ViewBag.Title = "Guess the secret number";
 }
 
-<h2>Guess the secret number</h2>
+@Html.Partial("PartialHeader")
 <p>You have 7 guesses, can you guess the number between 1 and 100?</p>
 
 
@@ -24,7 +24,7 @@
     <ul>
         @foreach (var number in Model.SecretNumber.GuessedNumbers)
         {
-            <li>@number.Number</li>
+            <li>@number.Number </li>
         }
     </ul>
     
@@ -45,7 +45,7 @@
     <script>
         $(function ()
         {
-            $("#secretNumber").focus();
+            $("#Guess").focus();
         });
     </script>
 }

@@ -58,15 +58,25 @@ namespace NumberGuessingGame.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index([Bind(Include = "Guess")]ViewModel viewModel)
         {
-            SecretNumber = SecretNumberSession;
-
-            if (ModelState.IsValid)
+            //If the session hasn't timed out....
+            if (!Session.IsNewSession)
             {
-                viewModel.Outcome = SecretNumber.MakeGuess(viewModel.Guess);
-                viewModel.SecretNumber = SecretNumber;
+                SecretNumber = SecretNumberSession;
+                //and the modelstate is valid
+                if (ModelState.IsValid)
+                {
+                    viewModel.Outcome = SecretNumber.MakeGuess(viewModel.Guess);
+                    viewModel.SecretNumber = SecretNumber;
 
-                return View(viewModel);
+                    return View("Index",viewModel);
+                }    
             }
+            else
+            {
+                //it must've timed out (set to 30 sek for testing,see web config for session timeout)
+                return View("Timeout");
+            }
+            
             return View("Index");
         }
 

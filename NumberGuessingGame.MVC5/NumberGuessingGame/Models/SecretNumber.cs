@@ -109,7 +109,8 @@ namespace NumberGuessingGame.Models
             }
             else
             {
-                if(Count == MaxNumberOfGuesses)
+                
+                if(!CanMakeGuess)
                 {
                     _lastGuessedNumber.Outcome = Outcome.NoMoreGuesses;
                 }

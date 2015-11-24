@@ -4,8 +4,11 @@ namespace NumberGuessingGame.Models.ViewModels
 {
     public class ViewModel
     {
+        #region fields
         private SecretNumber _secretNumber;
-
+        #endregion  
+        #region properties
+       
         [Required(ErrorMessage ="A number must be provided.")]
         [Range(1, 100, ErrorMessage = "The number must be within the interval 1-100")]
         public int Guess { get; set; }
@@ -23,11 +26,16 @@ namespace NumberGuessingGame.Models.ViewModels
                 _secretNumber = value;
             }
         }
-
-     
+        #endregion  
+        /// <summary>
+        /// Display the output, to high, to low and so on.
+        /// </summary>
+        /// <returns></returns>
+        #region DisplayOutCome
         public string DisplayOutCome()
         {
-            string output = "";
+            string output = string.Empty;
+
             switch (SecretNumber.LastGuessedNumber.Outcome)
             {
                 case Outcome.Low:
@@ -48,13 +56,57 @@ namespace NumberGuessingGame.Models.ViewModels
                     output = string.Format("You have already guessed the number{0}.",
                                            Guess);
                     break;
-                default:
+                default:                   
                     break;
             }
 
             return output;
         }
+        #endregion  
+    
+        /// <summary>
+        /// Display the header, for example First Guess, Second Guess and so on.
+        /// </summary>
+        /// <returns></returns>
+        #region DisplayHeaderText
+        public string DisplayHeaderText()
+        {
+            if (!SecretNumber.CanMakeGuess)
+            {
+                return "No more guesses!";
+            }
+            else if (SecretNumber.LastGuessedNumber.Outcome == Outcome.Right)
+            {
+                return "Correct!";
+            }
+            else
+            {
+                switch (SecretNumber.Count)
+                {
+                    case 1:
+                        return "First Guess";
+                    case 2:
+                        return "Second Guess";
+                    case 3:
+                        return "Third Guess";
+                    case 4:
+                        return "Fourth Guess";
+                    case 5:
+                        return "Fith Guess";
+                    case 6:
+                        return "Sixth Guess";
+                    case 7:
+                        return "Seventh Guess";
 
-        
+                    default:
+                        return string.Empty;
+                }
+            }
+
+        }
+        #endregion
     }
+
+
+    
 }

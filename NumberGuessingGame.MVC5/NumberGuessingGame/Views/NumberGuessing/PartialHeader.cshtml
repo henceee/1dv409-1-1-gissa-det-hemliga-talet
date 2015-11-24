@@ -1,0 +1,18 @@
+﻿@model NumberGuessingGame.Models.ViewModels.ViewModel
+
+@if (Model != null)
+{
+    
+        if (Model.SecretNumber.Count > 0)
+        {
+            
+            <h1>@Model.DisplayHeaderText() </h1>
+
+        }
+        else
+        {
+            <h1>Guess the Secret Number </h1>
+        }
+
+
+}
