@@ -18,7 +18,7 @@
 
 
 
-@if (Model != null && Model.SecretNumber.GuessedNumbers.Count >0)
+@if (Model != null && Model.AnyGuesses)
 {
     <p>Guessed Numbers:</p>
     <ul>
@@ -27,12 +27,14 @@
             <li>@number.Number </li>
         }
     </ul>
-    
-    @Model.DisplayOutCome()
-    <br />
-    if (Model.SecretNumber.CanMakeGuess == false)
+
+    <p>
+        @Model.OutComeText
+    </p>
+
+    if (!Model.SecretNumber.CanMakeGuess)
     {
-        @Html.ActionLink("New Secret Number", "Index")   
+        @Html.ActionLink("New Secret Number", "Index")
     }
 
 }
@@ -43,8 +45,7 @@
 @section scripts
 {
     <script>
-        $(function ()
-        {
+        $(function () {
             $("#Guess").focus();
         });
     </script>

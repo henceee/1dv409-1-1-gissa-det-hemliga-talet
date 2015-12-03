@@ -43,7 +43,7 @@ namespace NumberGuessingGame.Models
         /// <summary>
         /// 
         /// </summary>
-        public IList<GuessedNumber> GuessedNumbers
+        public IReadOnlyList<GuessedNumber> GuessedNumbers
         {
             get
             {
@@ -88,7 +88,7 @@ namespace NumberGuessingGame.Models
         public void Initialize()
         {
             _guessedNumbers.Clear();
-            _number = new Random().Next(MinVal, MaxVal);
+            _number = new Random().Next(MinVal, MaxVal + 1);
             _lastGuessedNumber = new GuessedNumber { Number = null, Outcome = Outcome.Indefinite};
         }
         #endregion
