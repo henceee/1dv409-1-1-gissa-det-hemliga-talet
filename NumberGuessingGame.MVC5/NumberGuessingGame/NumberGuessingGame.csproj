@@ -118,7 +118,7 @@
     <Compile Include="Models\GuessedNumber.cs" />
     <Compile Include="Models\Outcome.cs" />
     <Compile Include="Models\SecretNumber.cs" />
-    <Compile Include="Models\ViewModels\ViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
